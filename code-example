@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selects dependientes JavaScript</title>
+</head>
+
+<body>
+
+    <select id="estados" name="estados">
+	    <option codigo="00" value=""></option>
+        <option codigo="1" value="01">Distrito Capital</option>
+        <option codigo="2" value="02">Amazonas</option>
+        <option codigo="03" value="03">3.0.0</option>
+    </select>
+
+    <select id="municipios" name="municipios">
+        <option codigo="1" codigo2="1.0" value="1">Libertador </option>
+		
+		
+        <option codigo="2" codigo2="2.0" value="2">Municipio Atures</option>
+		<option codigo="2" codigo2="2.1" value="2">Municipio Alto Orinoco</option>
+		<option codigo="2" codigo2="2.2" value="2">Municipio Atabapo</option>
+		<option codigo="2" codigo2="2.3" value="2">Municipio Autana</option>
+		<option codigo="2" codigo2="2.4" value="2">Municipio Manapiare</option>
+		<option codigo="2" codigo2="2.5" value="2">Municipio Maroa</option>
+		<option codigo="2" codigo2="2.6" value="2">Municipio Río Negro</option>
+
+    </select>
+
+    <select id="parroquias" name="parroquias">
+        <option codigo2="00" value=""></option>
+		
+		
+        <option codigo2="1.0" value="1">Altagracia</option>
+		<option codigo2="1.0" value="1">Antímano</option>
+		<option codigo2="1.0" value="1">Candelaria</option>
+		<option codigo2="1.0" value="1">Caricuao</option>
+		<option codigo2="1.0" value="1">Catedral</option>
+		<option codigo2="1.0" value="1">Coche</option>
+		<option codigo2="1.0" value="1">El Junquito</option>
+		<option codigo2="1.0" value="1">El Paraíso</option>
+		<option codigo2="1.0" value="1">El Recreo</option>
+		<option codigo2="1.0" value="1">El Valle</option>
+		<option codigo2="1.0" value="1">La Pastora</option>
+		<option codigo2="1.0" value="1">La Vega</option>
+		<option codigo2="1.0" value="1">Macarao</option>
+		<option codigo2="1.0" value="1">San Agustín</option>
+		<option codigo2="1.0" value="1">San Bernardino</option>
+		<option codigo2="1.0" value="1">San José</option>
+		<option codigo2="1.0" value="1">San Juan</option>
+		<option codigo2="1.0" value="1">San Pedro</option>
+		<option codigo2="1.0" value="1">Santa Rosalía</option>
+		<option codigo2="1.0" value="1">Santa Teresa</option>
+		<option codigo2="1.0" value="1">Sucre</option>
+		<option codigo2="1.0" value="1">23 de enero</option>
+		
+		
+		<option codigo2="2.0" value="1">Fernando Girón Tovar</option>
+		<option codigo2="2.0" value="1">Luis Alberto Gómez</option>
+		<option codigo2="2.0" value="1">Parhueña</option>
+		<option codigo2="2.0" value="1">Platanillal</option>
+		
+		<option codigo2="2.1" value="1">Huachamacare</option>
+		<option codigo2="2.1" value="1">Marawaka</option>
+		<option codigo2="2.1" value="1">Mavaca</option>
+		<option codigo2="2.1" value="1">Sierra Parima</option>
+		
+		<option codigo2="2.2" value="1">Caname</option>
+		<option codigo2="2.2" value="1">Ucata</option>
+		<option codigo2="2.2" value="1">Yapacana</option>
+		
+		<option codigo2="2.3" value="1">Guayapo</option>
+		<option codigo2="2.3" value="1">Munduapo</option>
+		<option codigo2="2.3" value="1">Samariapo</option>
+		<option codigo2="2.3" value="1">Sipapo</option>
+		
+		<option codigo2="2.4" value="1">Alto Ventuari</option>
+		<option codigo2="2.4" value="1">Bajo Ventuari</option>
+		<option codigo2="2.4" value="1">Medio Ventuari</option>
+		
+		<option codigo2="2.5" value="1">Comunidad</option>
+		<option codigo2="2.5" value="1">Victorino</option>
+		
+		<option codigo2="2.6" value="1">Casiquiare</option>
+		<option codigo2="2.6" value="1">Cocuy</option>
+		<option codigo2="2.6" value="1">Solano</option>
+    </select>
+    
+    <script type="text/javascript">
+        // Consigue el elemento provincias/poblaciones por su identificador id. Es un método del DOM de HTML
+        var id1 = document.getElementById("estados");
+        var id2 = document.getElementById("municipios");
+        var id3 = document.getElementById("parroquias");
+        
+        // Añade un evento change al elemento id1, asociado a la función cambiar()
+        if (id1.addEventListener) {     // Para la mayoría de los navegadores, excepto IE 8 y anteriores
+            id1.addEventListener("change", cambiar);
+        } else if (id1.attachEvent) {   // Para IE 8 y anteriores
+            id1.attachEvent("change", cambiar); // attachEvent() es el método equivalente a addEventListener()
+        }
+
+        // Definición de la función cambiar()
+        function cambiar() {
+            for (var i = 0; i < id2.options.length; i++)
+            
+            // -- Inicio del comentario -- 
+            // Muestra solamente los id2 que sean iguales a los id1 seleccionados, según la propiedad display
+            if(id2.options[i].getAttribute("codigo") == id1.options[id1.selectedIndex].getAttribute("codigo")){
+                id2.options[i].style.display = "block";
+            }else{
+                id2.options[i].style.display = "none";
+            }
+            // -- Fin del comentario --
+                    
+            id2.value = "";
+        }
+
+        // Llamada a la función cambiar()
+        cambiar();
+
+                
+                //CODIGO PARA CAMBIAR EL TRECER COMBO
+                // Añade un evento change al elemento id2, asociado a la función cambiar2()
+                if (id2.addEventListener) {     // Para la mayoría de los navegadores, excepto IE 8 y anteriores
+                    id2.addEventListener("change", cambiar2);
+                } else if (id2.attachEvent) {   // Para IE 8 y anteriores
+                    id2.attachEvent("change", cambiar2); // attachEvent() es el método equivalente a addEventListener()
+                }
+
+                    // Definición de la función cambiar()
+                    function cambiar2() {
+                        for (var i = 0; i < id3.options.length; i++)
+            
+                    // -- Inicio del comentario -- 
+                    // Muestra solamente los id2 que sean iguales a los id1 seleccionados, según la propiedad display
+                    if(id3.options[i].getAttribute("codigo2") == id2.options[id2.selectedIndex].getAttribute("codigo2")){
+                       id3.options[i].style.display = "block";
+                    }else{
+                       id3.options[i].style.display = "none";
+                    }
+                    // -- Fin del comentario --
+                    
+                    id3.value = "";
+
+                    // Llamada a la función cambiar()
+                    cambiar3();
+        }
+
+    </script>
+    
+</body>
+
+</html>
